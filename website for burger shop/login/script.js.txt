@@ -1,0 +1,14 @@
+// scripts.js
+document.addEventListener('DOMContentLoaded', function () {
+  const loginBtn = document.getElementById('login-btn');
+  const signupBtn = document.getElementById('signup-btn');
+  const formContainer = document.querySelector('.form-container');
+
+  loginBtn.addEventListener('click', () => {
+    formContainer.style.transform = 'translateX(0)';
+  });
+
+  signupBtn.addEventListener('click', () => {
+    formContainer.style.transform = 'translateX(-50%)';
+  });
+});

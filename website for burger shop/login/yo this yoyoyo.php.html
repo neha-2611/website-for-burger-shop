@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goswami Brothers Burger Hut</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="iconlogo.png" alt="Burger Hut Logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li id="user-options"></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Burger Hut</h1>
+      <p>~By Goswami brothers</p>
+      <a href="#menu" class="btn">Explore Our Menu</a>
+    </div>
+  </section>
+
+  <section class="about dark-theme">
+    <div class="about-content">
+      <h2>About Burger Hut</h2>
+      <p>"At Goswami Brothers Burger Hut, we blend passion with culinary expertise, crafting gourmet burgers that redefine indulgence."</p>
+      <p>"Our commitment to quality ingredients and innovative flavors ensures every bite at Goswami Brothers Burger Hut is an unforgettable experience."</p>
+      <a href="#menu" class="btn">Explore Our Menu</a>
+    </div>
+    <div class="about-image">
+      <img src="about-image.jpg" alt="About Image">
+    </div>
+  </section>
+
+  <section class="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-items">
+      <div class="menu-item">
+        <img src="burger1.jpg" alt="Burger 1">
+        <h3>Classic Cheeseburger</h3>
+      </div>
+      <div class="menu-item">
+        <img src="burger2.jpg" alt="Burger 2">
+        <h3>Ganpat Special Veggie Delight</h3>
+      </div> 
+      <div class="menu-item">
+        <img src="burger3.jpg" alt="Burger 3">
+        <h3>Spicy BBQ Burger</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <div class="image-grid">
+      <div class="image-item">
+        <img src="gallery1.jpg" alt="Image 1">
+      </div>
+      <div class="image-item">
+        <img src="gallery2.jpg" alt="Image 2">
+      </div>
+      <div class="image-item">
+        <img src="gallery3.jpeg" alt="Image 3">
+      </div>
+      <div class="image-item">
+        <img src="gallery4.jpg" alt="Image 4">
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="contact-container">
+      <h2>Contact Us</h2>
+      <div class="contact-info">
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>29, Shree Nathji Royal Banglows</p>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-phone-alt"></i>
+          <p>+91 9173501808</p>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <p>goswamijainish@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="iconlogo.png" alt="Logo">
+      </div>
+      <nav class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Menu</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <p class="footer-text">&copy; 2024 Burger Hut by Goswami Brothers. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const userOptions = document.getElementById('user-options');
+      const userEmail = getCookie('userEmail'); // Function to get the user email cookie
+
+      if (userEmail) {
+        userOptions.innerHTML = `
+          <div class="dropdown">
+            <a href="profile.html" class="dropbtn">Profile</a>
+            <div class="dropdown-content">
+              <a href="profile.html">${userEmail}</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="cart.html" class="dropbtn">Cart</a>
+            <div class="dropdown-content">
+              <a href="cart.html">${userEmail}</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="login/logout.php" class="dropbtn">Logout</a>
+            <div class="dropdown-content">
+              <a href="login/logout.php">${userEmail}</a>
+            </div>
+          </div>
+        `;
+      } else {
+        userOptions.innerHTML = '<a href="login/Index.php">Login</a>';
+      }
+    });
+
+    function getCookie(name) {
+      let cookieArr = document.cookie.split(';');
+      for (let i = 0; i < cookieArr.length; i++) {
+        let cookiePair = cookieArr[i].split('=');
+        if (name == cookiePair[0].trim()) {
+          return decodeURIComponent(cookiePair[1]);
+        }
+      }
+      return null;
+    }
+  </script>
+</body>
+</html>
